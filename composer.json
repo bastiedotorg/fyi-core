@@ -1,0 +1,10 @@
+{
+    "require": {
+        "twbs/bootstrap": "5.0.0-beta1",
+      "ext-json": "*",
+      "ext-sqlite3": "*",
+        "guzzlehttp/guzzle": "^7.2",
+      "ext-curl": "*",
+      "ext-zip": "*"
+    }
+}

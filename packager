@@ -1,0 +1,41 @@
+#!/usr/bin/php
+<?php
+
+$action = $argv[1];
+$package = $argv[2];
+$file = "admin/manifests/$package.json";
+
+switch($action) {
+    case "sha1":
+        print("Updating sha1 of $package\n");
+        $data = json_decode(file_get_contents($file));
+        foreach($data->files as $key => $item) {
+            $data->files[$key]->sha1 = sha1_file($item->filename);
+        }
+
+        $fp = fopen($file, "w");
+        fputs($fp, json_encode($data, JSON_PRETTY_PRINT));
+        fclose($fp);
+        break;
+
+    case "zip":
+        print("Attempting to create package $package\n");
+        $zip = new ZipArchive();
+        unlink("tmp/$package.zip");
+        if(!$zip->open("tmp/$package.zip", ZipArchive::CREATE)) {
+            print("Could not create zip file.");
+            exit;
+        }
+        $data = json_decode(file_get_contents($file));
+        foreach($data->files as $key => $item) {
+            $zip->addFile($item->filename);
+        }
+        $zip->addFile($file, "MANIFEST.json");
+        $zip->close();
+        print("Finished package creation.\n");
+}
+
+
+
+
+

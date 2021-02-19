@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="de" class="h-100">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Bastian Luettig">
+    <title>FYI-Core</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <!-- Favicons -->
+    <meta name="theme-color" content="#7952b3">
+
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="/css/general.css" />
+</head>
+<body class="d-flex flex-column h-100">
+
+<header>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">FYI-Core</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item active">
+                        <a class="nav-link js-link" data-href="home:home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-link guest-link" data-href="home:login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-link user-link d-none" data-href="referral:home">Referral</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-link" data-href="home:agb">AGB</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-link" data-href="home:privacy">DSGVO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-link" data-href="home:imprint">Impressum</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-link user-link d-none" data-href="home:logout">Logout</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <span id="userInfo-name" class="navbar-brand nav-link">Gast</span>
+                </form>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Begin page content -->
+<main class="flex-shrink-0">
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" id="infoToast">
+        <div class="toast-header">
+            <strong class="me-auto">Information</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+        </div>
+    </div>
+    <div class="container" id="main-container">
+    </div>
+</main>
+
+<footer class="footer mt-auto py-3 bg-light">
+    <div class="container">
+        <span class="text-muted">Basiert auf FYI &copy; 2021 <a href="https://www.bastie.space" target="_blank">bastie.space</a></span>
+    </div>
+</footer>
+<script>
+    let baseUrl = '/dispatcher.php';
+    window.isAdmin = false;
+</script>
+
+<script src="/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+<script src="/js/utils/events.js"></script>
+<script src="/js/utils/selectors.js"></script>
+<script src="/js/utils/notification.js"></script>
+<script src="/js/utils/httprequest.js"></script>
+<script src="/js/utils/formatter.js"></script>
+<script src="/dist/js/dayjs.min.js"></script>
+<script src="/js/application.js" type="module"></script>
+
+<section id="add-script"></section>
+</body>
+</html>

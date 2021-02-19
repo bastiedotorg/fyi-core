@@ -1,0 +1,38 @@
+#!/bin/bash
+
+case "$1" in
+  "component")
+    mkdir "templates/$2"
+    mkdir "js/$2"
+    controller=$2
+    controller="$(tr '[:lower:]' '[:upper:]' <<< ${controller:0:1})${controller:1}"
+    echo "$controller"
+    cp ".helper/controller.php" "src/Controller/${controller}.php"
+    sed -i s/XXXXXXX/"$controller"/g "src/Controller/${controller}.php"
+    ;;
+  "page")
+    cp ".helper/template.html" "templates/$2/$3.html"
+    cp ".helper/template.js" "js/$2/$3.js"
+  ;;
+  "admin-component")
+    mkdir "admin/templates/$2"
+    mkdir "admin/js/$2"
+    controller=$2
+    controller="$(tr '[:lower:]' '[:upper:]' <<< ${controller:0:1})${controller:1}"
+    echo "$controller"
+    cp ".helper/controller.php" "src/Controller/Admin${controller}.php"
+    sed -i s/XXXXXXX/Admin"$controller"/g "src/Controller/Admin${controller}.php"
+    ;;
+  "admin-page")
+    cp ".helper/template.html" "admin/templates/$2/$3.html"
+    cp ".helper/template.js" "admin/js/$2/$3.js"
+  ;;
+  "model")
+    cp ".helper/Model.php" "src/Models/$2.php"
+    cp ".helper/Mapper.php" "src/Models/$2Mapper.php"
+  ;;
+  *)
+    echo "You have failed to specify what to do correctly."
+    exit 1
+    ;;
+esac

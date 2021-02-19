@@ -1,0 +1,19 @@
+<h3>Konfiguration</h3>
+<form id="configurationForm" class="form-control">
+    <template id="formRow">
+        <div class="mb-3 row">
+            <label for="id_%%FIELD_ID%%" class="col-sm-2 col-form-label">%%FIELD_LABEL%%</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="id_%%FIELD_ID%%" name="%%FIELD_ID%%"
+                       value="%%FIELD_VALUE%%">
+                <p class="text-muted">%%FIELD_HELP%% (Standard: %%FIELD_DEFAULT%%)</p>
+            </div>
+        </div>
+    </template>
+    <div id="formContent"></div>
+    <div class="mb-1 row">
+        <div class="col-sm-10">
+            <button class="btn btn-primary" type="submit" id="configSubmitBtn">Speichern</button>
+        </div>
+    </div>
+</form>
